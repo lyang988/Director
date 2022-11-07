@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    Username: <input type="text" name="username" id="username" ><br>
+    <p id='rsp'></p>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script type='text/javascript'>
+        console.log("yay");
+        document.getElementById('username').addEventListener('keydown', function(e) {
+            
+            if(e.keyCode===13){
+                var answer = document.getElementById('username').value;
+                var ajax_params = {
+                    'url'     : "loginworker",
+                    'type'    : "get",
+                    'data'    : {'usn':answer},
+                    'success' : onServerResponse
+                }
+    
+                $.ajax( ajax_params )
+            }
+        });
+        function onServerResponse(responsetext){
+            document.getElementById('rsp').innerHTML="login successful";
+        }
+    </script>
+</html>

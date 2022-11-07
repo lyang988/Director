@@ -1,0 +1,83 @@
+.map {
+    background-image: linear-gradient(to right, rgb(254, 255, 198),rgb(255, 209, 239));
+    position: absolute;
+    top: 100px;
+    left: 300px;
+    margin: 10px 20px 0px 0px;
+    height: 593px;
+    width: 810px;  
+    /*padding: auto auto;*/
+}
+p{
+    display: inline-block;
+}
+.playarea{
+    left: 300px;
+    top: 0px;
+    display: inline-block;
+    position: fixed;
+    font-size: 16pt;
+    width: 900px;
+    margin: 0px 20px;
+    z-index: 2;
+    white-space: nowrap;  
+    font-weight: lighter;
+    overflow: scroll;
+}
+.instructions {
+    position: fixed;
+    width: 240px;
+    height: 94%;
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    z-index: 2;
+}
+ul {
+    width:240px;
+}
+li a {
+    color: white;
+}
+ul {
+    list-style-type: none;
+    margin: -16px;
+    padding: 0;
+    width: 300px;
+}
+
+li a {
+    display: block;
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+li a:active {
+    background-color: rgb(212, 255, 241);
+    padding: 16px 16px;
+    color: #FF8700;
+}
+
+li a:hover:not(.active) {
+    background-color: rgb(107, 171, 241);
+    padding: 20px 16px;
+    color: white;
+}
+.map svg path {
+    fill-opacity:1;
+    stroke:#ffffff;
+    stroke-width:1;
+    stroke-miterlimit:4;
+    stroke-opacity:1;
+    stroke-dasharray:none;
+    stroke: rgb(103,185,108);
+    fill:  rgb(222, 255, 224);
+    transition: fill .4s ease-out; 
+}
+
+.map path:hover {
+    fill: rgb(192,274,255);
+    stroke: rgb(49,140,179);
+    pointer-events:all;
+}

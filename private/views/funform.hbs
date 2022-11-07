@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <!-- <link rel="stylesheet" type="text/css" href="css/nav_bar.css">-->
+  <title>Bubble Tea</title>
+  <li class="top-menu lefty"><a href="https://user.tjhsst.edu/2021lyang/">Home</a></li>
+            <li class="top-menu lefty"><a href="https://user.tjhsst.edu/2021lyang/weatherform">Weather</a></li>
+</head>
+<body>
+    <header>
+   <h1>BOBA!<br></h1> 
+   <h2>Make your own boba</h2>
+   </header>
+   <form action="yay" method="get">
+       Name:<br>
+       <input type="text" name="name">
+       <br><br>
+       <select name="tea">
+           {{#each tea}}
+           <option value={{this.k}}>{{this.v}}</option>
+           {{/each}}
+       </select>
+       <h3>Choose your size!</h3>
+       <input type = "radio" name = "size" value = "small">Small<br>
+       <input type = "radio" name = "size" value = "large">large<br>
+       <br>
+       <div>
+         <h3>Add Toppings!</h3>
+         <input type="checkbox" id="tapioca" name="topping[]" value="tapioca">tapioca
+         <input type="checkbox" id="grass jelly" name="topping[]" value="grass_jelly">grass jelly
+         <input type="checkbox" id="coffee jelly" name="topping[]" value="coffee_jelly">coffee jelly
+         <input type="checkbox" id="red bean" name="topping[]" value="red_bean">red bean
+       </div>
+       <button type="submit">I'm Done!</button>
+   </form>
+</body>
+</html>

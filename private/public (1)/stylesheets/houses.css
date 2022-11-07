@@ -1,0 +1,98 @@
+body {
+    width: 100%;
+    background-image: linear-gradient(to right, rgb(255, 209, 179),rgb(252, 255, 173));
+}
+header{
+  background-color: #DBE9EE;
+  text-align: center;
+  width: 100%;
+}
+form {
+    background-color: rgba(154, 211, 237, .5);
+}
+.background {
+    /*background-image: linear-gradient(to right, rgb(212, 255, 241),rgb(223, 212, 255));*/
+    background-image: url("https://user.tjhsst.edu/2021lyang/images/sky.jpg");
+    -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+    /*background-image: url("/images/sky.jpg")*/
+}
+#results{
+    background-color: rgba(204, 153, 255, .5);
+}
+.heading li{
+    /*font-family: sans-serif;*/
+    display: inline-block;
+    /*background-color: white;*/
+    background-image: linear-gradient(to right, rgb(212, 255, 241),rgb(223, 212, 255));
+    color:  rgb(0, 3, 153);
+    width: 100px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 5px;
+}
+.heading li:hover{
+    background-image: linear-gradient(to left, rgb(212, 255, 241),rgb(223, 212, 255));
+}
+.heading li a{
+    display: block;
+    text-decoration: none;
+    color: rgb(0, 3, 153);
+}
+.heading{
+    background-image: linear-gradient(to right, rgb(254, 255, 198),rgb(255, 209, 239));
+    padding: 5px;
+}
+[type=radio] { 
+   
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  text-align: center;
+}
+.top-menu {
+  display: inline-block;
+  background-color: rgb(255, 229, 227);
+  color:  pink;
+  width: 80px;
+  margin: 5px 5px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  text-align: center;
+  text-transform: uppercase;
+}
+.top-menu:hover{
+    background-color:  rgb(237, 189, 255);
+}
+
+.lefty{
+    float:left;
+}
+.right{
+    float: right;
+}
+[type=radio] + img {
+  cursor: pointer;
+  text-align: center;
+}
+.top-nav{
+    z-index: 10;
+  width: 100%;
+  top: 0;
+  position: absolute;
+  background-color: #466995;
+  margin: auto auto;
+}
+
+
+[type=radio]:checked + img {
+  outline: 3px solid rgb(111,255,255);
+  text-align: center;
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="stylesheets/nav_bar.css">
+  <title>Bubble Tea</title>
+  
+</head>
+<body >
+    <div class="background">
+    <div class="top-nav">
+        <ul class="top-horizontal">
+            <li class="top-menu lefty"><a href="https://user.tjhsst.edu/2021lyang/">Home</a></li>
+            <li class="top-menu lefty"><a href="https://user.tjhsst.edu/2021lyang/weatherform">Weather</a></li>
+            <li class="top-menu right"><a href="javascript:void(0)">{{name}}</a></li>
+        </ul>
+    </div>
+    <header>
+   <h1>{{name}}'s boba order</h1>  
+   </header>
+   <div class="order">
+   1 <em>{{size}}</em> {{type}} tea with 
+   {{#each toppings}}
+        <li>{{this}} 
+    {{/each}}
+    <br>
+    <button type="button" id="drink">Drink me!</button>
+    <p class="thanks" id="thanks">thank you for drinking with us today :)</p>
+    </div>
+    
+    </div>
+    <script type='text/javascript'>
+    document.getElementById('thanks').style.visibility="hidden"
+        document.getElementById('drink').addEventListener('click',displayMsg)
+        
+        function displayMsg(){
+            var msg = document.getElementById('thanks');
+            msg.style.visibility = "visible";
+        }
+        
+    </script>
+</body>
+</html>

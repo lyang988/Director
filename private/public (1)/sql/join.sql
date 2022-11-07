@@ -1,0 +1,20 @@
+drop table if exists caricature;
+create table caricature(id int, name char(50), team_int int, points int, primary key(id));
+drop table if exists team;
+create table team(val int, team_name char(50));
+insert into team(val, team_name) values (0, 'Sanrio');
+insert into team(val, team_name) values (1, 'San-X');
+insert into team(val, team_name) values (2, 'Line friends');
+insert into team(val, team_name) values (3, 'Kakao');
+drop table if exists points;
+create table points(name char(50), points int);
+insert into caricature(id, name, team_int, points) values (1, 'cinnamoroll',0,0);
+insert into caricature(id, name, team_int, points) values (2, 'tokage',1,0);
+insert into caricature(id, name, team_int, points) values (3, 'apeach',3,0);
+insert into caricature(id, name, team_int, points) values (4, 'brown',2,0);
+insert into caricature(id, name, team_int, points) values (5, 'hello kitty',0,0);
+insert into caricature(id, name, team_int, points) values (6, 'ebi',1,0);
+insert into caricature(id, name, team_int, points) values (7, 'sally',2,0);
+insert into caricature(id, name, team_int, points) values (8, 'ryan',3,0);
+select * from caricature
+join team where caricature.team_int=team.val;

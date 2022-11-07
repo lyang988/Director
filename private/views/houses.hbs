@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="stylesheets/houses.css">
+        <title>Vote!</title>
+        <link rel="icon" href="images/san-x.png">
+        <div class='heading'>            
+            <li><a href="https://user.tjhsst.edu/2021lyang/" >Homepage</a></li>
+            <li><a href="https://user.tjhsst.edu/2021lyang/weatherform">Weather</a></li>
+            <li><a href="https://user.tjhsst.edu/2021lyang/funform" >Boba!</a></li>
+            <li><a href="https://user.tjhsst.edu/2021lyang/voting_form">Vote !</a></li>
+            <li><a href="https://user.tjhsst.edu/2021lyang/map" >Map!</a></li>
+            <li><a href="https://user.tjhsst.edu/2021lyang/viewpoints" >View!</a></li>
+            <li><a href="https://user.tjhsst.edu/2021lyang/cookie" >SURPRISE!</a></li>
+        </div>
+</head>
+
+<body onload="fetchFromServer()" class="background">
+    <form id="the_form" name ="the_form">
+        
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    San-x
+                </div>
+                <div class="col">
+                    <label id="Tokage">
+                        <input type="radio" name="caricature" value="tokage" id="tokage">
+                        <img alt='cinnamoroll' src="images/tokage.png"height="200" width="300">
+                    </label>
+                </div>
+                <div class="col">
+                    <label id="ebi">
+                        <input type="radio" name="caricature" value="ebi" id="ebi">
+                            <img alt='ebi' src="images/ebi.png"height="200" width="300">
+                        </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    Sanrio
+                </div>
+                <div class="col">
+                    <label id="Cinnamoroll">
+                        <input type="radio" name="caricature" value="cinnamoroll" id="cinnamoroll">
+                        <img alt='cinnamoroll' src="images/cnmrl.jpg"height="200" width="300">
+                    </label>
+                </div>
+                <div class="col">
+                    <label id="hello kitty">
+                        <input type="radio" name="caricature" value="hello kitty" id="hello kitty">
+                        <img alt='cinnamoroll' src="images/hellokitty.jpg"height="200" width="300">
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    Kakao
+                </div>
+                <div class="col">
+                    <label id="Apeach">
+            <input type="radio" name="caricature" value="apeach" id="apeach">
+            <img alt='cinnamoroll' src="images/apeach.png"height="200" width="300">
+        </label>
+                </div>
+                <div class="col">
+                    <label id="Ryan">
+            <input type="radio" name="caricature" value="ryan" id="ryan">
+            <img alt='cinnamoroll' src="images/ryan.jpg"height="200" width="300">
+        </label><br>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    Line
+                </div>
+                <div class="col">
+                    <label id="Brown">
+            <input type="radio" name="caricature" value="brown" id="brown">
+            <img alt='cinnamoroll' src="images/brown.png"height="200" width="300">
+            </label>
+                </div>
+                <div class="col">
+                     <label id="Sally">
+            <input type="radio" name="caricature" value="sally" id="sally">
+            <img alt='cinnamoroll' src="images/sally.png"height="200" width="300">
+        </label>
+                </div>
+            </div>
+        </div>
+        <br>
+        Point value 10-100 
+        <input type="range" id="amount" name="amount" min="10" max="100"><p>Value: <span id="num"></span></p>
+    </form><br>
+    <div id='results' >current point values</div>
+    <button type="button" onclick="fetchFromServer()">Award points!</button>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript">
+    var slider = document.getElementById("amount");
+    var output = document.getElementById("num");
+    output.innerHTML = slider.value; // Display the default slider value
+
+// Update the current slider value (each time you drag the slider handle)
+    slider.oninput = function() {
+        output.innerHTML = this.value;
+    }
+    
+    
+    function fetchFromServer() {
+        var form_string = $("#the_form").serialize()
+        console.log('hello');
+        var ajax_params = {
+            'url'     : "houseworker",
+            'type'    : "get",
+            'data'    : form_string,
+            'success' : onServerResponse
+        }
+        
+        $.ajax( ajax_params )
+    }
+    function onServerResponse (responseText) {
+        console.log(responseText);
+        document.getElementById('results').innerHTML = (responseText);
+    }
+</script>
+
+</body>
+</html>
